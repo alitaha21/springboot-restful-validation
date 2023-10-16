@@ -17,7 +17,7 @@ import java.util.stream.IntStream;
 @Configuration
 public class DataLoader implements CommandLineRunner {
 
-    private Logger logger = LoggerFactory.getLogger(DataLoader.class);
+    private final Logger logger = LoggerFactory.getLogger(DataLoader.class);
     private final UserRepository userRepository;
     private final PostRepository postRepository;
     private final PasswordEncoder passwordEncoder;
@@ -32,7 +32,7 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        logger.info("Add a valid user to login");
+        logger.info("Add a valid user to login, and posts...");
         User user = new User("user", passwordEncoder.encode("password"), "admin,user");
         List<Post> postList = IntStream.range(1, 100)
                         .mapToObj(i -> new Post(
