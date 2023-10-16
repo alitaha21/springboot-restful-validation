@@ -18,7 +18,7 @@ public class Post {
     private Long id;
     @NotNull(message = "title cannot be null, please add a title")
     private String title;
-    @Size(min = 100, max = 500)
+    @Size(max = 500)
     private String body;
     @NotBlank
     private String author;
